@@ -2,13 +2,16 @@ import discord
 from discord.ext import commands
 import asyncio
 import asyncpg
-from config import TOKEN, DATABASE_URL
+import os
+
+TOKEN = os.getenv("DISCORD_TOKEN")
+DATABASE_URL = os.getenv("DATABASE_URL")
 
 intents = discord.Intents.default()
 intents.message_content = True
 intents.members = True
 
-bot = commands.Bot(command_prefix="!", intents=intents)
+bot = commands.Bot(command_prefix="!", intents=ints)
 
 async def create_pool():
     bot.pool = await asyncpg.create_pool(DATABASE_URL)
