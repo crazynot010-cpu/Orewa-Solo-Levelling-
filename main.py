@@ -11,7 +11,7 @@ intents = discord.Intents.default()
 intents.message_content = True
 intents.members = True
 
-bot = commands.Bot(command_prefix="!", intents=ints)
+bot = commands.Bot(command_prefix="!", intents=intents)
 
 async def create_pool():
     bot.pool = await asyncpg.create_pool(DATABASE_URL)
